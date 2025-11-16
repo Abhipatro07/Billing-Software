@@ -1,0 +1,48 @@
+/* Main Card Container */
+.form-container {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 22px;
+  margin-top: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+  color: #000;
+}
+
+/* Label styling */
+.form-container .form-label {
+  font-weight: 500;
+}
+
+/* Input fields */
+.form-container .form-control {
+  background: #f6f6f6;
+  border: 1px solid #c2c2c2;
+  color: #000;
+  border-radius: 6px;
+  padding: 10px;
+  transition: border-color 0.2s;
+}
+
+.form-container .form-control:focus {
+  border-color: #5b8cff;
+  box-shadow: 0 0 4px rgba(91, 140, 255, 0.5);
+}
+
+/* Submit Button */
+.form-container button {
+  background: #5b8cff;
+  border: none;
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 100%;
+}
+
+.form-container button:hover {
+  background: #6fa5ff;
+  transition: 0.2s;
+}

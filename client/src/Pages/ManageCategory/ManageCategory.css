@@ -1,0 +1,35 @@
+/* Main container for the page */
+.category-container {
+  display: flex;
+  height: 100vh; /* full viewport height */
+  width: 100%;
+  background-color: #1e1e2f; /* Sample dark background */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Left side for CategoryForm - takes 70% */
+.left-column {
+  flex: 0 0 70%;
+  padding-right: 20px;
+}
+
+/* Right side for CategoryList - takes 30% */
+.right-column {
+  flex: 0 0 30%;
+  padding-left: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Make it responsive */
+@media (max-width: 768px) {
+  .category-container {
+    flex-direction: column;
+  }
+  .left-column,
+  .right-column {
+    flex: 0 0 100%;
+    padding: 10px 0;
+    border: none;
+  }
+}
