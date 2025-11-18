@@ -1,0 +1,82 @@
+.explore-container {
+  height: 100vh;
+  display: flex;
+  padding: 20px;
+  background-color: #1b1c2b;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* LEFT = 30% (CATEGORY) */
+.left-column {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 20px;
+}
+
+/* RIGHT = 70% (ITEMS + CART) */
+.right-column {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 20px;
+  border-left: 1px solid rgba(255,255,255,0.25);
+}
+
+/* CATEGORY & ITEM BOXES */
+.first-row,
+.second-row {
+  flex: 1;
+  background: #232533;
+  padding: 15px;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+/* CUSTOMER FORM */
+.customer-form-container {
+  flex: 0.9;
+  background: #2e3142;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+/* CART ITEMS */
+.cart-item-container {
+  flex: 2.2;
+  background: #2e3142;
+  border-radius: 10px;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+/* CART SUMMARY */
+.cart-summary-container {
+  flex: 1.2;
+  background: #2e3142;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+/* Remove hr inside right column */
+.right-column hr {
+  display: none;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .explore-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left-column,
+  .right-column {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+  }
+}
