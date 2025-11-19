@@ -1,0 +1,88 @@
+/* Full container scroll */
+.category-list-container {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 5px;
+}
+
+/* Search row spacing */
+.category-list-container .row:first-child {
+  margin-bottom: 10px;
+}
+
+/* Category card */
+.category-list-container .card {
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Hover animation */
+.category-list-container .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+/* Image shape */
+.category-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+/* Delete button */
+.category-list-container .btn-danger {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Smooth scrollbar */
+.category-list-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.category-list-container::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.25);
+  border-radius: 10px;
+}
+/* Convert Search Bar row into actual search box */
+.category-list-container .row:first-child {
+    margin-bottom: 15px;
+}
+
+.category-list-container .row:first-child {
+    display: flex;
+    align-items: center;
+}
+
+/* Search bar styling */
+.category-list-container .row:first-child::before {
+    content: "🔍 Search...";
+    color: #ccc;
+
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+/* Hide the raw text "Search Bar" */
+.category-list-container .row:first-child {
+    color: transparent;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .category-list-container {
+    height: auto;
+  }
+}

@@ -26,7 +26,9 @@ public class categoryEntity {
     @Column(unique = true)
     private String name;
     private String description;
+    @Column(name = "image_url")
     private String imageUrl;
+    @Column(name = "bg_color")
     private String bgColor;
     @UpdateTimestamp
     private Timestamp updatedAt;
