@@ -6,8 +6,13 @@ import com.example.BillingSoftware.io.categoryResponse;
 import com.example.BillingSoftware.repository.categoryRepository;
 import com.example.BillingSoftware.service.categoryService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
+import org.springframework.web.multipart.MultipartFile;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -16,12 +21,50 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class categoryServiceImpl implements categoryService {
     private final categoryRepository categoryRepository;
+    @Value("${file.upload-dir}")
+    private String uploadDir;
 
     @Override
-    public categoryResponse add(categoryRequest request) {
-        categoryEntity newCategory = convertToEntity(request);
+    public categoryResponse add(categoryRequest request, MultipartFile imageFile) {
+
+        String imageUrl = null;
+
+        if (imageFile != null && !imageFile.isEmpty()) {
+            imageUrl = uploadImage(imageFile);
+        }
+
+        categoryEntity newCategory = categoryEntity.builder()
+                .categoryId(UUID.randomUUID().toString())
+                .name(request.getName())
+                .description(request.getDescription())
+                .bgColor(request.getBgColor())
+                .imageUrl(imageUrl)
+                .build();
+
         newCategory = categoryRepository.save(newCategory);
+
         return convertToResponse(newCategory);
+    }
+
+    @Override
+    public String uploadImage(MultipartFile file) {
+        try {
+            File directory = new File(uploadDir);
+            if (!directory.exists()) directory.mkdirs();
+
+            String fileName =
+                    UUID.randomUUID() + "_" +
+                            file.getOriginalFilename().replace(" ", "_");
+
+            Path filePath = Paths.get(uploadDir + "/" + fileName);
+
+            Files.write(filePath, file.getBytes());
+
+            return "/" + uploadDir + "/" + fileName;
+
+        } catch (Exception e) {
+            throw new RuntimeException("Image Upload Failed: " + e.getMessage());
+        }
     }
 
     @Override

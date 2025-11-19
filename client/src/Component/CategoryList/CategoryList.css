@@ -60,20 +60,6 @@
     align-items: center;
 }
 
-/* Search bar styling */
-.category-list-container .row:first-child::before {
-    content: "🔍 Search...";
-    color: #ccc;
-
-    width: 100%;
-    height: 40px;
-    border-radius: 8px;
-    padding: 8px 12px;
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-}
-
 /* Hide the raw text "Search Bar" */
 .category-list-container .row:first-child {
     color: transparent;
