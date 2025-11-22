@@ -14,14 +14,13 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
-@RequestMapping("/categories")
 @RequiredArgsConstructor
-@CrossOrigin("*")
+
 public class categoryController {
 
     private final categoryService categoryService;
 
-    @PostMapping()
+    @PostMapping("/admin/categories")
     @ResponseStatus(HttpStatus.CREATED)
     public categoryResponse addCategory(
             @RequestPart("data") String data,
@@ -43,7 +42,7 @@ public class categoryController {
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{categoryId}")
+    @DeleteMapping("/admin/categories/{categoryId}")
     public void remove (@PathVariable String categoryId){
         try{
             categoryService.delete(categoryId);

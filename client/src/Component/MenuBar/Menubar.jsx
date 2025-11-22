@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { assets } from '../../assets/assets';
 import './MenuBar.css'
 const Menubar = () => {
@@ -25,27 +25,27 @@ const Menubar = () => {
       <div className="collapse navbar-collapse p-2" id="navbarNav">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
-            <Link className="nav-link active" to="/dashboard">Dashboard</Link>
+            <NavLink className="nav-link" to="/dashboard">Dashboard</NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/explore">
+            <NavLink className="nav-link" to="/explore">
               Explore
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/items">
+            <NavLink className="nav-link" to="/items">
               Manage Item
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/category">
+            <NavLink className="nav-link" to="/category">
               Manage Categories
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/users">
+            <NavLink className="nav-link" to="/users">
               Manage Users
-            </Link>
+            </NavLink>
           </li>
           
         </ul>
