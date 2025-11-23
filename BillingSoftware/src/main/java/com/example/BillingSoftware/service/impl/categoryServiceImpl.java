@@ -4,6 +4,7 @@ import com.example.BillingSoftware.entity.categoryEntity;
 import com.example.BillingSoftware.io.categoryRequest;
 import com.example.BillingSoftware.io.categoryResponse;
 import com.example.BillingSoftware.repository.categoryRepository;
+import com.example.BillingSoftware.repository.itemRepository;
 import com.example.BillingSoftware.service.categoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,7 +21,10 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class categoryServiceImpl implements categoryService {
+
     private final categoryRepository categoryRepository;
+    private final itemRepository itemRepository;
+
     @Value("${file.upload-dir}")
     private String uploadDir;
 
@@ -84,6 +88,7 @@ public class categoryServiceImpl implements categoryService {
     }
 
     private categoryResponse convertToResponse(categoryEntity newCategory) {
+        Integer itemCount = itemRepository.countByCategoryId(newCategory.getId());
         return categoryResponse.builder()
                 .categoryId(newCategory.getCategoryId())
                 .name(newCategory.getName())
@@ -92,6 +97,7 @@ public class categoryServiceImpl implements categoryService {
                 .imageUrl(newCategory.getImageUrl())
                 .createdAt(newCategory.getCreatedAt())
                 .updatedAt(newCategory.getUpdatedAt())
+                .items(itemCount)
                 .build();
     }
 
