@@ -1,0 +1,79 @@
+/* Remove scroll everywhere */
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Full-page background */
+.login-background {
+  background-image: url("/src/assets/loginbg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  height: calc(100vh - 70px); /* Fit below navbar */
+  width: 100%;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dark overlay */
+.login-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 0;
+}
+
+/* Card styling */
+.card {
+  position: relative;
+  z-index: 2;
+  border-radius: 12px;
+  padding: 10px;
+  background: #ffffff;
+  box-shadow: 0px 8px 28px rgba(0,0,0,0.3);
+}
+
+/* Inputs */
+.form-control {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cfcfcf;
+  background: #f8f8f8;
+}
+
+.form-control:focus {
+  border-color: #5568ff;
+  box-shadow: 0 0 0 0.2rem rgba(85,104,255,0.25);
+}
+
+/* Button */
+.btn-dark {
+  background: #1f1f2e;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.btn-dark:hover {
+  background: #34344a;
+}
+
+/* Transparent Glass Card */
+.login-background .card {
+  position: relative;
+  z-index: 2;
+  border-radius: 16px;
+  padding: 25px;
+
+  background: rgba(255, 255, 255, 0.18) !important;   /* 🔥 make transparent */
+  backdrop-filter: blur(12px) !important;             /* 🔥 glass blur */
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}

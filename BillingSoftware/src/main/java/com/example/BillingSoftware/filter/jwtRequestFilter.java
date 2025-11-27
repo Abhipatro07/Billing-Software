@@ -27,8 +27,7 @@ public class jwtRequestFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
         String path = request.getServletPath();
-
-        // ⛔ Skip JWT check for these endpoints
+                // Skip login paths
         if (path.equals("/login") || path.equals("/encode")) {
             filterChain.doFilter(request, response);
             return;
