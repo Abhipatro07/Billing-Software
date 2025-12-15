@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './USerForm.css'
+import './UserForm.css'
 import toast from 'react-hot-toast';
 import { addUser } from '../../Service/UserService';
 

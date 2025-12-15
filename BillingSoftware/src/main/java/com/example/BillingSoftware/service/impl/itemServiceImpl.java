@@ -46,7 +46,8 @@ public class itemServiceImpl implements itemService {
                 .description((newItem.getDescription()))
                 .price(newItem.getPrice())
                 .imageUrl(newItem.getImageUrl())
-                .categoryName(newItem.getCategory().getCategoryId())
+                .categoryId(newItem.getCategory().getCategoryId())
+                .categoryName(newItem.getCategory().getName())
                 .createdAt(newItem.getCreatedAt())
                 .updatedAt(newItem.getUpdatedAt())
                 .build();

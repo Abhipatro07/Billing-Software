@@ -1,16 +1,13 @@
-/* Whole navbar */
-.navbar {
-  background: #1c1d26 !important; /* Custom dark tone */
+/* .navbar {
+  background: #1c1d26 !important; 
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.35);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* LOGO */
 .navbar-brand img {
   filter: brightness(1.2);
 }
 
-/* MENU LINKS */
 .navbar .nav-link {
   color: #bfc5d2 !important;
   font-weight: 500;
@@ -20,20 +17,17 @@
   transition: 0.25s ease;
 }
 
-/* HOVER EFFECT */
 .navbar .nav-link:hover {
   background-color: #2c2f3d !important;
   color: #ffffff !important;
 }
 
-/* ACTIVE LINK HIGHLIGHT */
 .navbar .nav-link.active {
   background: #5568ff !important;
   color: white !important;
   font-weight: 600;
 }
 
-/* MOBILE NAV ICON */
 .navbar-toggler {
   border: none !important;
   outline: none !important;
@@ -43,11 +37,131 @@
   filter: brightness(1.5);
 }
 
-/* MOBILE MENU BG */
 @media (max-width: 991px) {
   #navbarNav {
     background: #1c1d26;
     border-radius: 8px;
     padding: 10px !important;
+  }
+} */
+
+
+/* =========================
+   NAVBAR BASE
+========================= */
+
+.navbar {
+  background: linear-gradient(180deg, #1f2233, #1a1d2b);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.navbar-brand img {
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.navbar-nav .nav-link {
+  color: #cfd3ff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 10px;
+  margin-right: 6px;
+
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  background: rgba(85, 104, 255, 0.18);
+  color: #ffffff;
+}
+
+/* active route */
+.navbar-nav .nav-link.active {
+  background: linear-gradient(135deg, #5568ff, #7a5cff);
+  color: #ffffff;
+}
+
+/* =========================
+   TOGGLER (MOBILE)
+========================= */
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* =========================
+   PROFILE ICON
+========================= */
+
+.navbar-nav img {
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 3px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.15),
+    0 4px 10px rgba(0, 0, 0, 0.35);
+
+  transition: transform 0.25s ease;
+}
+
+.navbar-nav img:hover {
+  transform: scale(1.1);
+}
+
+/* =========================
+   DROPDOWN MENU
+========================= */
+
+.dropdown-menu {
+  background: #26293a;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+  padding: 8px;
+}
+
+.dropdown-item {
+  color: #cfd3ff;
+  font-size: 13px;
+  border-radius: 8px;
+  padding: 8px 12px;
+
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.dropdown-item:hover {
+  background: rgba(85, 104, 255, 0.2);
+  color: #ffffff;
+}
+
+.dropdown-divider {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================
+   MOBILE VIEW
+========================= */
+
+@media (max-width: 768px) {
+  .navbar-nav .nav-link {
+    margin-bottom: 6px;
+  }
+
+  .dropdown-menu {
+    margin-top: 10px;
   }
 }

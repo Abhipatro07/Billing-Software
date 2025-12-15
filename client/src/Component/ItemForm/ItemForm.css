@@ -1,11 +1,9 @@
-/* Outer scrolling container */
-.item-form-container {
+/* .item-form-container {
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-/* Main Card */
 .form-container {
   width: 100%;
   background: #ffffff;
@@ -16,7 +14,6 @@
   color: #000;
 }
 
-/* Image Upload */
 .form-container .form-label img {
   display: block;
   margin: 0 auto 10px;
@@ -26,7 +23,6 @@
   background: #e5e5e5;
 }
 
-/* Input + Select */
 .form-container .form-control {
   background: #f6f6f6;
   border: 1px solid #c2c2c2;
@@ -41,12 +37,10 @@
   box-shadow: 0 0 5px rgba(91,140,255,0.6);
 }
 
-/* Select dropdown fix */
 .form-container select.form-control {
   cursor: pointer;
 }
 
-/* Submit Button */
 .form-container button {
   background: #5b8cff;
   border: none;
@@ -61,4 +55,170 @@
 .form-container button:hover {
   background: #6fa5ff;
   transition: 0.2s;
+} */
+
+
+/* =========================
+   FORM WRAPPER
+========================= */
+
+.item-form-container {
+  padding-bottom: 12px;
+}
+
+/* =========================
+   CARD CONTAINER
+========================= */
+
+.form-container {
+  background: linear-gradient(180deg, #26293a, #1e2132);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* =========================
+   CARD BODY
+========================= */
+
+.form-container .card-body {
+  padding: 20px;
+}
+
+/* =========================
+   IMAGE UPLOAD
+========================= */
+
+.form-label img {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 8px;
+  cursor: pointer;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 6px 14px rgba(0, 0, 0, 0.3);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-label img:hover {
+  transform: scale(1.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.15),
+    0 10px 22px rgba(0, 0, 0, 0.45);
+}
+
+/* =========================
+   LABELS
+========================= */
+
+.form-label {
+  color: #cfd3ff;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* =========================
+   INPUTS, SELECT, TEXTAREA
+========================= */
+
+.form-control {
+  background: #1a1d2b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+
+  color: #ffffff;
+  font-size: 14px;
+  padding: 10px 12px;
+
+  transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-control::placeholder {
+  color: #8f94c1;
+}
+
+.form-control:focus {
+  background: #1a1d2b;
+  color: #ffffff;
+  border-color: #5568ff;
+  box-shadow: 0 0 0 2px rgba(85, 104, 255, 0.25);
+}
+
+/* fix select arrow color */
+select.form-control option {
+  background: #1a1d2b;
+  color: #ffffff;
+}
+
+/* textarea */
+textarea.form-control {
+  resize: none;
+  min-height: 90px;
+}
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.btn-primary {
+  background: linear-gradient(135deg, #5568ff, #7a5cff);
+  border: none;
+  border-radius: 14px;
+  padding: 12px;
+
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(122, 92, 255, 0.45);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* =========================
+   TABLET VIEW
+========================= */
+
+@media (max-width: 768px) {
+  .form-container .card-body {
+    padding: 16px;
+  }
+
+  .form-control {
+    font-size: 13px;
+  }
+
+  .btn-primary {
+    padding: 11px;
+  }
+}
+
+/* =========================
+   MOBILE VIEW
+========================= */
+
+@media (max-width: 480px) {
+  .form-container {
+    border-radius: 14px;
+  }
+
+  .form-label img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .btn-primary {
+    font-size: 13px;
+  }
 }
