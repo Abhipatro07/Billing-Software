@@ -1,0 +1,32 @@
+/* ================= CART SUMMARY ================= */
+
+.cart-summary-wrapper {
+    padding: 10px;
+    background-color: #222;
+    border-radius: 6px;
+}
+
+/* Summary values */
+.cart-summary-details span {
+    font-size: 14px;
+    color: #eee;
+}
+
+/* Total row highlight */
+.total-row {
+    padding-top: 6px;
+    border-top: 1px solid #444;
+    font-weight: 600;
+}
+
+/* Payment buttons */
+.cart-summary-wrapper .btn {
+    height: 42px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Receipt popup spacing */
+.cart-summary-wrapper > * + * {
+    margin-top: 10px;
+}

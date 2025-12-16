@@ -1,0 +1,42 @@
+/* ================= DISPLAY ITEMS ================= */
+
+/* Outer padding */
+.display-items-wrapper {
+    padding: 10px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Search bar row */
+.display-items-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+/* Items grid */
+.items-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Item card wrapper */
+.items-grid-item {
+    flex: 0 0 calc(33.33% - 12px);
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .items-grid-item {
+        flex: 0 0 calc(50% - 12px);
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .items-grid-item {
+        flex: 0 0 100%;
+    }
+}

@@ -1,4 +1,4 @@
-.explore-container {
+/* .explore-container {
   display: flex;
   height: calc(100vh - 64px); 
   background: #181b29;
@@ -125,4 +125,108 @@
     border-radius: 12px;
     padding: 8px;
   }
+} */
+
+
+/* ================= ROOT CONTAINER ================= */
+.explore-container {
+    display: flex;
+    height: calc(100vh - 64px); /* adjust if navbar height differs */
+    background-color: #121212;
+    padding: 10px;
+    gap: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* ================= LEFT COLUMN ================= */
+.left-column {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    background-color: #1c1c1c;
+    border-radius: 8px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+/* Categories */
+.first-row {
+    flex: 0 0 auto;
+    max-height: 30%;
+    overflow-y: auto;
+}
+
+/* Items */
+.second-row {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* ================= RIGHT COLUMN ================= */
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #1c1c1c;
+    border-radius: 8px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+/* ================= CUSTOMER FORM ================= */
+.customer-form-container {
+    flex: 0 0 auto;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+/* ================= CART ITEMS (SCROLL AREA) ================= */
+.cart-item-container {
+    flex: 1;                /* 🔥 THIS IS THE KEY */
+    overflow-y: auto;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+/* ================= CART SUMMARY ================= */
+.cart-summary-container {
+    flex: 0 0 auto;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+/* ================= SCROLLBAR ================= */
+.first-row::-webkit-scrollbar,
+.second-row::-webkit-scrollbar,
+.cart-item-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.first-row::-webkit-scrollbar-thumb,
+.second-row::-webkit-scrollbar-thumb,
+.cart-item-container::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 4px;
+}
+
+/* ================= HR ================= */
+hr {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+    .explore-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-column,
+    .right-column {
+        width: 100%;
+    }
 }

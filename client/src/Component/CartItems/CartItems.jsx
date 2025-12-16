@@ -6,14 +6,14 @@ export const CartItems = () => {
     const {cartItems , updateQuantity , removeFromTheCart} = useContext(AppContext)
     
     return(
-        <div className="p-3 h-100 overflow-y-auto">
+        <div className="p-3 h-100">
             {cartItems.length == 0 ? (
                 <p className="text-light">Your Cart is Empty</p>
             ) : (
                 <div className="cart-items list">
                     {cartItems.map((item , index) => (
                         <div key={index} className="cart-item mb-3 p-3 bg-dark rounded">
-                            <div className="d-flex justify-content-between align-items center mb-2">
+                            <div className="d-flex justify-content-between align-items-center mb-2">
                                 <h6 className='mb-0 text-light'>{item.name}</h6>
                                 <p className="mb-0 text-light">
                                     ₹{(item.price * item.quantity).toFixed(2)}

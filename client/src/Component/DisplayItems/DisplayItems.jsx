@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { AppContext } from '../../Context/AppContext';
 import Item from "../../Component/Item/Item"
 import SearchBox from '../SearchBox/SearchBox';
+import './DisplayItems.css'
 
 export const DisplayItems = ({selectedCategory}) => {
     const {itemsData} = useContext(AppContext)
@@ -16,7 +17,7 @@ export const DisplayItems = ({selectedCategory}) => {
     }).filter(item => item.name.toLowerCase().includes(searchText.toLowerCase()))
     return(
         <div className="p-3">
-            <div className="d-flex justify-content-between align-items center mb-4">
+            <div className="d-flex justify-content-between align-items-center mb-3">
                 <div></div>
                 <div>
                     <SearchBox onSearch={setSearchText}/>

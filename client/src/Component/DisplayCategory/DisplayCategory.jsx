@@ -1,4 +1,5 @@
 import Category from '../Category/Category';
+import './DisplayCategory.css'
 
 export const DisplayCategory = ({categories , setSelectedCategory , selectedCategory}) => {
     return(
