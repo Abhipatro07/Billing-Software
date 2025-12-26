@@ -1,4 +1,8 @@
 package com.example.BillingSoftware.repository;
 
-public interface orderItemEntityRepository {
+import com.example.BillingSoftware.entity.orderItemEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface orderItemEntityRepository extends JpaRepository<orderItemEntity, Long> {
+
 }
