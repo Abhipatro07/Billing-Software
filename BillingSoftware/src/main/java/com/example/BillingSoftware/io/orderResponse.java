@@ -19,7 +19,7 @@ public class orderResponse {
     private paymentMethod paymentMethod;
     private List<orderResponse.orderItemResponse> items;
     private Double tax;
-    private Double subtotal;
+    private Double subTotal;
     private Double grandTotal;
     private LocalDateTime createdAt;
     private paymentDetails paymentDetails;

@@ -1,0 +1,100 @@
+/* 🔹 Overlay */
+.receipt-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* 🔹 Receipt Card */
+.receipt-container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    padding: 22px;
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.25s ease-in-out;
+}
+
+/* 🔹 Success Icon */
+.txt-success {
+    color: #28a745;
+}
+
+/* 🔹 Scrollable Items */
+.cart-items-scrollable {
+    max-height: 160px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+/* 🔹 Scrollbar */
+.cart-items-scrollable::-webkit-scrollbar {
+    width: 5px;
+}
+
+.cart-items-scrollable::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 10px;
+}
+
+.cart-items-scrollable::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* 🔹 Text Styling */
+.receipt-container p {
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.receipt-container strong {
+    font-weight: 600;
+}
+
+.receipt-container h3 {
+    font-weight: 600;
+}
+
+.receipt-container h5 {
+    font-weight: 600;
+}
+
+/* 🔹 Divider */
+.receipt-container hr {
+    margin: 12px 0;
+}
+
+/* 🔹 Buttons */
+.receipt-container button {
+    min-width: 130px;
+}
+
+/* 🔹 Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 🔹 Mobile */
+@media (max-width: 480px) {
+    .receipt-container {
+        max-width: 95%;
+        padding: 18px;
+    }
+
+    .receipt-container button {
+        min-width: 100px;
+    }
+}
+

@@ -18,7 +18,7 @@ public class orderRequest {
     private String paymentMethod;
     private List<orderItemRequest> cartItems;
     private Double tax;
-    private Double subtotal;
+    private Double subTotal;
     private Double grandTotal;
 
 

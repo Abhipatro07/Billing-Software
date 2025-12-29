@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -20,10 +21,16 @@ public class orderServiceImpl implements orderService {
     public orderResponse createOrder(orderRequest request) {
         orderEntity newOrder = convertToOrderEntity(request);
         paymentDetails paymentDetails = new paymentDetails();
-        paymentDetails.setStatus(newOrder.getPaymentMethod() == paymentMethod.CASH ?
-                        com.example.BillingSoftware.io.paymentDetails.PaymentStatus.COMPLETED : com.example.BillingSoftware.io.paymentDetails.PaymentStatus.PENDING
-                );
+
+        if (newOrder.getPaymentMethod() == paymentMethod.UPI) {
+            paymentDetails.setRazorpayOrderId(generateRazorpayOrderId());
+            paymentDetails.setStatus(com.example.BillingSoftware.io.paymentDetails.PaymentStatus.PENDING);
+        } else {
+            paymentDetails.setStatus(com.example.BillingSoftware.io.paymentDetails.PaymentStatus.COMPLETED);
+        }
+
         newOrder.setPaymentDetails(paymentDetails);
+
         List<orderItemEntity> orderItems = request.getCartItems().stream()
                 .map(this::convertToOrderItemEntity)
                 .collect(Collectors.toList());
@@ -49,7 +56,7 @@ public class orderServiceImpl implements orderService {
                 .orderId(newOrder.getOrderId())
                 .customerName(newOrder.getCustomerName())
                 .phoneNumber(newOrder.getPhoneNumber())
-                .subtotal(newOrder.getSubTotal())
+                .subTotal(newOrder.getSubTotal())
                 .tax(newOrder.getTax())
                 .grandTotal(newOrder.getGrandTotal())
                 .paymentMethod(newOrder.getPaymentMethod())
@@ -73,7 +80,7 @@ public class orderServiceImpl implements orderService {
         return orderEntity.builder()
                 .customerName(request.getCustomerName())
                 .phoneNumber(request.getPhoneNumber())
-                .subTotal(request.getSubtotal())
+                .subTotal(request.getSubTotal())
                 .tax(request.getTax())
                 .grandTotal(request.getGrandTotal())
                 .paymentMethod(paymentMethod.valueOf(request.getPaymentMethod()))
@@ -114,9 +121,9 @@ public class orderServiceImpl implements orderService {
         }
 
         paymentDetails paymentDetails = existingOrder.getPaymentDetails();
-        paymentDetails.setRazorpayOrderId(request.getRazorpayOrderId());
         paymentDetails.setRazorpayPaymentId(request.getRazorpayPaymentId());
         paymentDetails.setRazorpaySignature(request.getRazorpaySignature());
+//        paymentDetails.setStatus(com.example.BillingSoftware.io.paymentDetails.PaymentStatus.COMPLETED);
         paymentDetails.setStatus(com.example.BillingSoftware.io.paymentDetails.PaymentStatus.COMPLETED);
 
         existingOrder.setPaymentDetails(paymentDetails);
@@ -133,4 +140,10 @@ public class orderServiceImpl implements orderService {
         // ✅ Dummy mode: always success
         return true;
     }
+
+    private String generateRazorpayOrderId() {
+        return "order_" + System.currentTimeMillis() + "_" +
+                UUID.randomUUID().toString().substring(0, 8);
+    }
+
 }
