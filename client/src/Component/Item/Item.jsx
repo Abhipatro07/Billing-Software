@@ -30,9 +30,8 @@ const Item = ({ itemName, itemPrice, itemImage, itemId }) => {
             </div>
 
             <div className="d-flex flex-column justify-content-between align-items-center ms-3" style={{ height: "100%" }}>
-                <i className="bi bi-cart-plus fs-4 text-warning"></i>
-                <button className="btn btn-success btn-sm" onClick={handleAddToCart}>
-                    <i className="bi bi-plus"></i>
+                <button onClick={handleAddToCart}>
+                    <i className="bi bi-cart-plus fs-4 text-warning"></i>
                 </button>
             </div>
         </div>

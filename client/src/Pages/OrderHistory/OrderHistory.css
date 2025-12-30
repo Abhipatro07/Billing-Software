@@ -1,0 +1,89 @@
+/* Container */
+.orders-history-container {
+    background-color: #121212;
+    padding: 16px;
+    border-radius: 8px;
+
+    /* IMPORTANT: no scrolling here */
+    height: auto;
+    overflow: hidden;
+}
+
+/* Heading */
+.orders-history-container h2 {
+    font-weight: 600;
+}
+
+/* Table wrapper (ONLY scroll here) */
+.table-responsive {
+    max-height: 75vh;       /* controls visible rows */
+    overflow-y: auto;       /* SINGLE scrollbar */
+}
+
+/* Table */
+.orders-history-container table {
+    background-color: #ffffff;
+    border-radius: 6px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+/* Table header */
+.orders-history-container thead th {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    /* Optional: sticky header */
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #212529;
+    color: #fff;
+}
+
+/* Table body */
+.orders-history-container tbody td {
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+/* Hover effect */
+.orders-history-container tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Items column */
+.orders-history-container td:nth-child(3) {
+    max-width: 260px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Badge spacing */
+.orders-history-container .badge {
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Loading & empty states */
+.orders-history-container .text-center {
+    color: #ccc;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .orders-history-container h2 {
+        font-size: 18px;
+    }
+
+    .orders-history-container table {
+        font-size: 13px;
+    }
+
+    .table-responsive {
+        max-height: 65vh;
+    }
+}

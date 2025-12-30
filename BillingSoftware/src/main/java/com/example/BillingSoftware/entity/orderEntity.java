@@ -31,8 +31,11 @@ public class orderEntity {
     private Double grandTotal;
     private LocalDateTime createdAt;
 
-    @OneToMany(cascade = CascadeType.ALL , orphanRemoval = true)
-    @JoinColumn(name = "order_id")
+//    @OneToMany(cascade = CascadeType.ALL , orphanRemoval = true)
+//    @JoinColumn(name = "order_id")
+//    private List<orderItemEntity> items = new ArrayList<>();
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<orderItemEntity> items = new ArrayList<>();
 
     @Embedded

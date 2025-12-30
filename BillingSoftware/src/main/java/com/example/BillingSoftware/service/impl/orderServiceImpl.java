@@ -6,8 +6,11 @@ import com.example.BillingSoftware.io.*;
 import com.example.BillingSoftware.repository.orderEntityRepository;
 import com.example.BillingSoftware.service.orderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Pageable;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -17,9 +20,16 @@ public class orderServiceImpl implements orderService {
 
     @Autowired
     private orderEntityRepository orderEntityRepository;
+
     @Override
     public orderResponse createOrder(orderRequest request) {
+
+        // 1️⃣ Create Order entity
         orderEntity newOrder = convertToOrderEntity(request);
+
+        final orderEntity orderRef = newOrder;
+
+        // 2️⃣ Set payment details
         paymentDetails paymentDetails = new paymentDetails();
 
         if (newOrder.getPaymentMethod() == paymentMethod.UPI) {
@@ -31,16 +41,25 @@ public class orderServiceImpl implements orderService {
 
         newOrder.setPaymentDetails(paymentDetails);
 
+        // 3️⃣ Convert cart items → order items & set order reference
         List<orderItemEntity> orderItems = request.getCartItems().stream()
-                .map(this::convertToOrderItemEntity)
+                .map(item -> {
+                    orderItemEntity entity = convertToOrderItemEntity(item);
+                    entity.setOrder(orderRef);   // ✅ IMPORTANT LINE
+                    return entity;
+                })
                 .collect(Collectors.toList());
 
+        // 4️⃣ Attach items to order
         newOrder.setItems(orderItems);
 
+        // 5️⃣ Save order (cascades to order items)
         newOrder = orderEntityRepository.save(newOrder);
-        return convertToResponse(newOrder);
 
+        // 6️⃣ Return response
+        return convertToResponse(newOrder);
     }
+
 
     private orderItemEntity convertToOrderItemEntity(orderRequest.orderItemRequest orderItemRequest) {
         return orderItemEntity.builder()
@@ -144,6 +163,26 @@ public class orderServiceImpl implements orderService {
     private String generateRazorpayOrderId() {
         return "order_" + System.currentTimeMillis() + "_" +
                 UUID.randomUUID().toString().substring(0, 8);
+    }
+
+
+    @Override
+    public Double sumSalesByDate(LocalDate date) {
+        return orderEntityRepository.sumSalesByDate(date);
+    }
+
+    @Override
+    public Long countByOrderdate(LocalDate date) {
+        return orderEntityRepository.countByOrderDate(date);
+    }
+
+    @Override
+    public List<orderResponse> findRecentOrders() {
+        return orderEntityRepository.findRecentOrders()
+                .stream()
+                .limit(5)
+                .map(orderEntity -> convertToResponse(orderEntity))
+                .collect(Collectors.toList());
     }
 
 }

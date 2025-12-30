@@ -1,5 +1,6 @@
 package com.example.BillingSoftware.io;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,6 +22,7 @@ public class orderResponse {
     private Double tax;
     private Double subTotal;
     private Double grandTotal;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdAt;
     private paymentDetails paymentDetails;
 

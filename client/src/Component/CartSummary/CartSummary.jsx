@@ -195,7 +195,7 @@ export const CartSummary = ({
 
       <div className="d-flex gap-3 mt-3">
         <button className="btn btn-warning flex-grow-1" onClick={placeOrder} disabled={showPopup}>
-          Place Order
+          Remove Items
         </button>
       </div>
 

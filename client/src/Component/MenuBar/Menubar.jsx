@@ -6,13 +6,17 @@ import { AppContext } from '../../Context/AppContext';
 
 const Menubar = () => {
   const navigate = useNavigate()
-  const {setAuthData} = useContext(AppContext)
+  const { setAuthData, auth } = useContext(AppContext)
   const logout = () => {
     localStorage.removeItem("token")
     localStorage.removeItem("role")
     setAuthData({ token: null, role: null })
     navigate("/login")
   }
+
+  const role = auth?.role || localStorage.getItem("role");
+  const isAdmin = role === "ROLE_ADMIN";
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-2">
       <a className="navbar-brand" href="#">
@@ -43,19 +47,30 @@ const Menubar = () => {
               Explore
             </NavLink>
           </li>
+          {
+            isAdmin && (
+              <>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/items">
+                    Manage Item
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/category">
+                    Manage Categories
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/users">
+                    Manage Users
+                  </NavLink>
+                </li>
+              </>
+            )
+          }
           <li className="nav-item">
-            <NavLink className="nav-link" to="/items">
-              Manage Item
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/category">
-              Manage Categories
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/users">
-              Manage Users
+            <NavLink className="nav-link" to="/orders">
+              Order History
             </NavLink>
           </li>
         </ul>
@@ -69,13 +84,13 @@ const Menubar = () => {
               <li>
                 <a href="#!" className="dropdown-item">Settings</a>
                 <a href="#!" className="dropdown-item">Activity Logs</a>
-                <li><hr className='dropdown-divider'/></li>
+                <li><hr className='dropdown-divider' /></li>
                 <a href="#!" className="dropdown-item" onClick={logout}>Log Out</a>
               </li>
             </ul>
           </li>
         </ul>
-        </div>
+      </div>
     </nav>
   );
 };

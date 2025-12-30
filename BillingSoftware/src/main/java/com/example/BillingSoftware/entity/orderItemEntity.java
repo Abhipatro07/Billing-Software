@@ -17,9 +17,14 @@ public class orderItemEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true)
+    @Column(nullable = false)
     private String itemId;
     private String name;
     private Double price;
     private Integer quantity;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id", nullable = false)
+    private orderEntity order;
+
 }
