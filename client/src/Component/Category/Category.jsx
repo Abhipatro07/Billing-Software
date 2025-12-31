@@ -3,7 +3,7 @@ import './Category.css'
 export const Category = ({categoryName , imageFile , numberOfItems , bgColor , onClick , isSelected}) => {
     return(
         <div className="d-flex align-items-center p-3 rounded gap-1 position-relative category-hover"
-            style={{backgroundColor:bgColor , cursor:'pointer'}} 
+            style={{backgroundColor:bgColor ,backgroundImage: "none" , cursor:'pointer'}} 
                 onClick={onClick}>
 
                 <div style={{position:'relative' , marginRight:'15px'}}>

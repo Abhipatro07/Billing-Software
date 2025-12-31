@@ -10,6 +10,7 @@ import Login from "./Pages/Login/Login";
 import OrderHistory from "./Pages/OrderHistory/OrderHistory";
 import { useContext } from "react";
 import { AppContext } from "./Context/AppContext";
+import NotFound from "./Pages/NotFound/NotFound";
 
 const App = () => {
   const location = useLocation();
@@ -54,6 +55,7 @@ const App = () => {
         <Route path='/login' element={<LoginRoute element={<Login/>}/>}/> 
         <Route path='/orders' element={<OrderHistory/>}/> 
         <Route path='/' element={<Dashboard/>}/>
+        <Route path='*' element={<NotFound/>}/>
 
       </Routes>
     </div>

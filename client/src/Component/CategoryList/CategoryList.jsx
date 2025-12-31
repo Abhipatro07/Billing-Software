@@ -49,7 +49,7 @@ const CategoryList = () => {
             <div className="row g-2 pe-3">
                 {filteredCategories.map((category, index) => (
                     <div key={index} className="col-12">
-                        <div className="card p-3" style={{ backgroundColor: category.bgColor }}>
+                        <div className="card p-3" style={{ backgroundColor: category.bgColor , backgroundImage: "none" }}>
                             <div className="d-flex align-items-center">
                                 <div style={{ marginRight: "15px" }}>
                                     <img

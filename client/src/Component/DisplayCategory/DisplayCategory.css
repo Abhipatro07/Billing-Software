@@ -1,27 +1,46 @@
-/* Container row override */
-.display-category-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    width: 100%;
-    margin: 0;
+/* Wrapper fixes */
+.row {
+    margin-left: 0;
+    margin-right: 0;
 }
 
-/* Each category wrapper */
-.display-category-col {
-    flex: 0 0 calc(25% - 12px); /* 4 per row desktop */
+/* Category column spacing */
+.row > div {
+    margin-bottom: 16px;
 }
 
-/* Tablet */
-@media (max-width: 992px) {
-    .display-category-col {
-        flex: 0 0 calc(33.33% - 12px);
+/* Smooth appearance */
+.row > div {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Hover enhancement (applies when Category card itself has hover) */
+.row > div:hover {
+    z-index: 2;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .row > div {
+        padding: 0 6px !important;
     }
 }
 
-/* Mobile */
+/* Small devices */
 @media (max-width: 576px) {
-    .display-category-col {
-        flex: 0 0 calc(50% - 12px);
+    .row {
+        gap: 12px;
+    }
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

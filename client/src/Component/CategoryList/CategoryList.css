@@ -1,81 +1,7 @@
-/* .category-list-container {
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-right: 5px;
-}
-
-.category-list-container .row:first-child {
-  margin-bottom: 10px;
-}
-
-.category-list-container .card {
-  border: none;
-  border-radius: 10px;
-  padding: 12px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.category-list-container .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-}
-
-.category-image {
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
-  object-fit: cover;
-  border: 2px solid rgba(255,255,255,0.2);
-}
-
-.category-list-container .btn-danger {
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-.category-list-container::-webkit-scrollbar {
-  width: 6px;
-}
-
-.category-list-container::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.25);
-  border-radius: 10px;
-}
-
-.category-list-container .row:first-child {
-    margin-bottom: 15px;
-}
-
-.category-list-container .row:first-child {
-    display: flex;
-    align-items: center;
-}
-
-.category-list-container .row:first-child {
-    color: transparent;
-}
-
-@media (max-width: 768px) {
-  .category-list-container {
-    height: auto;
-  }
-} */
-
-
-/* =========================
-   CATEGORY LIST CONTAINER
-========================= */
-
 .category-list-container {
   padding-left: 10px;
   padding-top: 6px;
 }
-
-/* =========================
-   SEARCH BAR
-========================= */
 
 .input-group .form-control {
   background: #2a2d3e;
@@ -105,14 +31,9 @@
   cursor: pointer;
 }
 
-/* =========================
-   CATEGORY CARD
-========================= */
-
 .category-list-container .card {
   border-radius: 18px;
   border: none;
-  background: linear-gradient(180deg, #26293a, #1f2233);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -122,10 +43,6 @@
   transform: translateY(-4px);
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
 }
-
-/* =========================
-   CATEGORY IMAGE
-========================= */
 
 .category-image {
   width: 56px;
@@ -140,10 +57,6 @@
     0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
-/* =========================
-   TEXT
-========================= */
-
 .category-list-container h5 {
   font-size: 16px;
   font-weight: 700;
@@ -153,10 +66,6 @@
   font-size: 13px;
   opacity: 0.9;
 }
-
-/* =========================
-   DELETE BUTTON
-========================= */
 
 .btn-danger {
   border-radius: 10px;
@@ -169,10 +78,6 @@
   transform: scale(1.05);
   box-shadow: 0 10px 22px rgba(220, 53, 69, 0.6);
 }
-
-/* =========================
-   TABLET VIEW
-========================= */
 
 @media (max-width: 768px) {
   .category-image {
@@ -188,10 +93,6 @@
     font-size: 12px;
   }
 }
-
-/* =========================
-   MOBILE VIEW
-========================= */
 
 @media (max-width: 480px) {
   .category-list-container {
